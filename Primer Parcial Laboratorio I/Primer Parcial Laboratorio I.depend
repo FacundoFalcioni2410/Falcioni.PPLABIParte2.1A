@@ -1,0 +1,142 @@
+# depslib dependency file v1.0
+1589811445 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\color.c
+	"color.h"
+
+1589374565 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\color.h
+
+1589811922 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicio.h"
+
+1589811445 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\marca.c
+	"marca.h"
+
+1589379498 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\marca.h
+
+1589220076 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1589219982 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\utn.h
+
+1589813398 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"color.h"
+	"auto.h"
+	"color.h"
+	"marca.h"
+	"utn.h"
+
+1589404547 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\auto.h
+	"marca.h"
+	"color.h"
+
+1589812024 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"auto.h"
+	"trabajo.h"
+	"marca.h"
+	"color.h"
+	"servicio.h"
+	"utn.h"
+
+1589380103 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\trabajo.h
+	"servicio.h"
+	"auto.h"
+
+1589378466 c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\servicio.h
+
+1589813137 source:c:\users\vivi y hec\desktop\falcionifacundopplabi\primer parcial laboratorio i\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"trabajo.h"
+	"marca.h"
+	"auto.h"
+	"color.h"
+	"servicio.h"
+	"utn.h"
+
+1589926128 source:c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\color.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"color.h"
+
+1589925796 c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\color.h
+
+1589812024 source:c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"auto.h"
+	"trabajo.h"
+	"marca.h"
+	"color.h"
+	"servicio.h"
+	"utn.h"
+
+1589925796 c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\auto.h
+	"marca.h"
+	"color.h"
+
+1589379498 c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\marca.h
+
+1589925796 c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\trabajo.h
+	"servicio.h"
+	"auto.h"
+
+1589378466 c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\servicio.h
+
+1589219982 c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\utn.h
+
+1589926128 source:c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\trabajo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"trabajo.h"
+	"marca.h"
+	"auto.h"
+	"color.h"
+	"servicio.h"
+	"utn.h"
+
+1589926128 source:c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\utn.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"utn.h"
+
+1589926128 source:c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\auto.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+	"auto.h"
+	"color.h"
+	"marca.h"
+	"utn.h"
+
+1589926128 source:c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\marca.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"marca.h"
+
+1589926128 source:c:\users\vivi y hec\desktop\falcioni.pplabiparte2.1a\primer parcial laboratorio i\servicio.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"servicio.h"
+
