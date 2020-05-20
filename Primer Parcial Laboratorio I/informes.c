@@ -84,7 +84,7 @@ void mostrarAutosPorColorSeleccionado(eAutos x[], int tam,eMarcas marca[], int t
     system("cls");
 
     mostrarColores(color,tamColor);
-    if(utn_getEntero(&idColor,3,"Ingrese el ID del color que desea ver los autos: ","ERROR, ID COLOR INVALIDO",5000,5004))
+    if(utn_getEntero(&idColor,3,"Ingrese el ID del color que desea ver los autos: ","ERROR, ID COLOR INVALIDO",5000,5004) == 0)
     {
         cargarDescripcionColor(nombreColor,idColor,color,tamColor);
 
@@ -106,7 +106,7 @@ void mostrarAutoPorMarcaSeleccionada(eAutos x[],int tam,eMarcas marca[], int tam
     int idMarca;
     char nombreMarca[20];
 
-    if(utn_getEntero(&idMarca,3,"Ingrese el ID del color que desea ver los autos: ","ERROR, ID COLOR INVALIDO",5000,5004))
+    if(utn_getEntero(&idMarca,3,"Ingrese el ID del color que desea ver los autos: ","ERROR, ID COLOR INVALIDO",5000,5004) == 0)
     {
         cargarDescripcionMarca(nombreMarca,idMarca,marca,tamMarca);
 
@@ -255,7 +255,7 @@ void mostrarTrabajosEnUnAuto(eAutos x[],int tam,eTrabajos trabajo[], int tamTrab
 
     mostrarAutos(x,tam,marca,tamMarca,color,tamColor,cliente,tamCliente);
 
-    if(utn_getEntero(&idAuto,3,"\nIngrese el ID del auto: ","ERROR, ID COLOR INVALIDO",1000,20000))
+    if(utn_getEntero(&idAuto,3,"\nIngrese el ID del auto: ","ERROR, ID COLOR INVALIDO",1000,20000) == 0)
     {
         if(buscarAutoPorId(x,tam,idAuto)!= -1)
         {
@@ -282,7 +282,7 @@ void informarImporteServiciosDeAuto(eAutos x[],int tam,eTrabajos trabajo[], int 
 
     mostrarAutos(x,tam,marca,tamMarca,color,tamColor,cliente,tamCliente);
 
-    if(utn_getEntero(&idAuto,3,"\nIngrese el ID del auto: ","ERROR, ID COLOR INVALIDO",1000,20000))
+    if(utn_getEntero(&idAuto,3,"\nIngrese el ID del auto: ","ERROR, ID COLOR INVALIDO",1000,20000) == 0)
     {
         indiceAutoBuscado = buscarAutoPorId(x,tam,idAuto);
         if(indiceAutoBuscado != -1)
