@@ -8,12 +8,13 @@
 #include "auto.h"
 #include "color.h"
 #include "servicio.h"
+#include "cliente.h"
 #include "utn.h"
 
 
 void inicializarTrabajos(eTrabajos x[], int tamTrabajo)
 {
-    for(int i = 0; i < tamTrabajo; i++)
+    for(int i = 6; i < tamTrabajo; i++)
     {
         x[i].isEmpty = 1;
     }
@@ -34,16 +35,16 @@ int buscarEspacioLibreTrabajos(eTrabajos x[], int tamTrabajo)
     return indice;
 }
 
-void mostrarTrabajo(eTrabajos x,eAutos autos, eServicios servicio[], int tamServicio)
+void mostrarTrabajo(eTrabajos x,eServicios servicio[], int tamServicio)
 {
     char nombreServicio[21];
 
     cargarDescripcionServicio(nombreServicio,x.idServicio,servicio,tamServicio);
-    printf("%4d     %16d         %10s             %02d/%02d/%4d\n",x.id, autos.patente, nombreServicio, x.fechaTrabajo.dia,x.fechaTrabajo.mes,x.fechaTrabajo.anio);
+    printf("%4d     %16d         %10s             %02d/%02d/%4d\n",x.id, x.patente, nombreServicio, x.fechaTrabajo.dia,x.fechaTrabajo.mes,x.fechaTrabajo.anio);
 }
 
 
-void mostrarTrabajos(eTrabajos x[],int tamTrabajo, eAutos autos[], eServicios servicios[], int tamServicios)
+void mostrarTrabajos(eTrabajos x[],int tamTrabajo, eServicios servicios[], int tamServicios)
 {
     int flag = 0;
 
@@ -55,7 +56,7 @@ void mostrarTrabajos(eTrabajos x[],int tamTrabajo, eAutos autos[], eServicios se
     {
         if(x[i].isEmpty == 0)
         {
-            mostrarTrabajo(x[i],autos[i],servicios,tamServicios);
+            mostrarTrabajo(x[i],servicios,tamServicios);
             flag = 1;
         }
     }
@@ -68,12 +69,14 @@ void mostrarTrabajos(eTrabajos x[],int tamTrabajo, eAutos autos[], eServicios se
 
 
 
-int altaTrabajo(eAutos x[], int tam, eTrabajos trabajo[], int tamTrabajo, int proximoId, eMarcas marca[], int tamMarca, eColores color[], int tamColor, eServicios servicios[], int tamServicios)
+int altaTrabajo(eAutos x[], int tam, eTrabajos trabajo[], int tamTrabajo, int proximoId, eMarcas marca[], int tamMarca, eColores color[], int tamColor, eServicios servicios[], int tamServicios,eClientes clientes[], int tamCliente)
 {
     eTrabajos auxiliar;
     int indice;
     int todoOk = 0;
     int idAuto;
+
+    int indiceAuto;
 
     system("cls");
 
@@ -89,13 +92,17 @@ int altaTrabajo(eAutos x[], int tam, eTrabajos trabajo[], int tamTrabajo, int pr
     {
         auxiliar.id = proximoId;
 
-        mostrarAutos(x, tam,marca,tamMarca,color,tamColor);
+        mostrarAutos(x, tam,marca,tamMarca,color,tamColor,clientes,tamCliente);
         mostrarServicios(servicios,tamServicios);
         printf("\n\n");
         if((utn_getEntero(&idAuto,3,"Ingrese el ID de un auto mostrado arriba: ","ERROR. ID invalido\n",1000,10000) == 0))
         {
-            if(buscarAutoPorId(x,tam,idAuto) != -1)
+            indiceAuto = buscarAutoPorId(x,tam,idAuto);
+
+            if(indiceAuto != -1)
             {
+                auxiliar.patente=x[indiceAuto].patente;
+
                 if(utn_getEntero(&auxiliar.idServicio,3,"Ingrese el servicio que desea realizar: ","ERROR. ID invalido\n",20000,20003) == 0)
                 {
                     printf("Ingrese la fecha del trabajo: ");

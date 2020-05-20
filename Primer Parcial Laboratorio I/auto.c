@@ -6,6 +6,7 @@
 #include "auto.h"
 #include "color.h"
 #include "marca.h"
+#include "cliente.h"
 #include "utn.h"
 
 
@@ -50,28 +51,31 @@ int buscarAutoPorId(eAutos x[], int tam, int id)
 }
 
 
-void mostrarAuto(eAutos x,eMarcas marca[], int tamMarca, eColores color[], int tamColor)
+void mostrarAuto(eAutos x,eMarcas marca[], int tamMarca, eColores color[], int tamColor, eClientes cliente[], int tamCliente)
 {
     char nombreMarca[21];
     char nombreColor[21];
+    char nombreCliente[21];
 
     cargarDescripcionMarca(nombreMarca,x.idMarca,marca,tamMarca);
     cargarDescripcionColor(nombreColor,x.idColor,color,tamColor);
-    printf("  %4d     %4d     %9s       %6s         %4d\n",x.id, x.patente, nombreMarca, nombreColor, x.anioFabricacion.anio);
+    cargarDescripcionCliente(nombreCliente,x.idCliente,cliente,tamCliente);
+
+    printf("\n  %4d     %4d    %10s        %9s       %6s         %4d\n",x.id, x.patente, nombreCliente, nombreMarca, nombreColor, x.anioFabricacion.anio);
 }
 
-void mostrarAutos(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor)
+void mostrarAutos(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor, eClientes cliente[], int tamCliente)
 {
     int flag = 0;
 
     printf("                ~~~ LISTADO DE AUTOS~~~ \n\n");
-    printf("   ID    PATENTE      MARCA          COLOR       MODELO\n\n");
+    printf("   ID    PATENTE     NOMBRE CLIENTE      MARCA          COLOR       MODELO\n");
 
     for(int i = 0; i < tam; i++)
     {
         if(x[i].isEmpty == 0)
         {
-            mostrarAuto(x[i],marca, tamMarca, color, tamColor);
+            mostrarAuto(x[i],marca, tamMarca, color, tamColor, cliente, tamCliente);
             flag = 1;
         }
     }
@@ -84,7 +88,7 @@ void mostrarAutos(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores co
     printf("\n\n");
 }
 
-int altaAuto(eAutos x[], int tam, int proximoId, eMarcas marca[], int tamMarca, eColores color[], int tamColor)
+int altaAuto(eAutos x[], int tam, int proximoId, eMarcas marca[], int tamMarca, eColores color[], int tamColor,eClientes cliente[],int indiceCliente)
 {
     eAutos auxiliar;
     int indice;
@@ -103,12 +107,15 @@ int altaAuto(eAutos x[], int tam, int proximoId, eMarcas marca[], int tamMarca, 
     else
     {
         auxiliar.id = proximoId;
+        auxiliar.idCliente = cliente[indiceCliente].id;
 
         mostrarMarcas(marca,tamMarca);
         mostrarColores(color,tamColor);
 
         if((utn_getEntero(&auxiliar.patente,3,"Ingrese la patente del auto: ","ERROR. patente invalida (entre 100 y 999)\n",100,999)) == 0 && (utn_getEntero(&auxiliar.idMarca,3,"Ingrese la marca: ","ERROR. Ingrese ID de la marca\n",1000,1004)) == 0 && (utn_getEntero(&auxiliar.idColor,3,"Ingrese el color del auto: ","ERROR. Ingrese el ID del color\n",5000,5004)) == 0 && (utn_getEntero(&auxiliar.anioFabricacion.anio,3,"Ingrese el anio de fabricacion: ","ERROR. Anio invalido\n",1940,2020)) == 0)
         {
+
+
             todoOk = 1;
 
             auxiliar.isEmpty = 0;
@@ -139,7 +146,7 @@ int menuModificarAuto()
     return opcion;
 }
 
-int modificarAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor)
+int modificarAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor,eClientes cliente[],int tamCliente)
 {
     int indice;
     int id;
@@ -160,7 +167,7 @@ int modificarAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores co
     {
         printf("\n~~~ AUTO A MODIFICAR ~~~\n\n");
         printf("ID          PATENTE          MARCA     COLOR        MODELO   FECHA DE INGRESO\n\n");
-        mostrarAuto(x[indice],marca, tamMarca,color, tamColor);
+        mostrarAuto(x[indice],marca, tamMarca,color, tamColor,cliente,tamCliente);
         printf("\n\n Desea modificar este auto? ");
         fflush(stdin);
         scanf("%c",&confirma);
@@ -194,7 +201,7 @@ int modificarAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores co
     return todoOk;
 }
 
-int bajaAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor)
+int bajaAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor, eClientes cliente[], int tamCliente)
 {
     int indice;
     int id;
@@ -215,7 +222,7 @@ int bajaAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[]
     {
         printf("\n~~~ AUTO A ELIMINAR ~~~\n\n");
         printf("ID     PATENTE      MARCA     COLOR     MODELO   \n\n");
-        mostrarAuto(x[indice],marca,tamMarca,color,tamColor);
+        mostrarAuto(x[indice],marca,tamMarca,color,tamColor,cliente,tamCliente);
         printf("\n\n Desea eliminar a este auto? ");
         fflush(stdin);
         scanf("%c",&confirma);
@@ -254,6 +261,18 @@ void cargarDescripcionColor(char descripcion[],int id, eColores color[], int tam
         if(color[i].id == id)
         {
             strcpy(descripcion, color[i].nombreColor);
+        }
+    }
+}
+
+
+void cargarDescripcionCliente(char descripcion[],int id, eClientes cliente[], int tamCliente)
+{
+    for(int i = 0; i < tamCliente; i++)
+    {
+        if(cliente[i].id == id)
+        {
+            strcpy(descripcion, cliente[i].nombre);
         }
     }
 }

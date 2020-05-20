@@ -3,6 +3,7 @@
 
 #include "marca.h"
 #include "color.h"
+#include "cliente.h"
 
 typedef struct
 {
@@ -17,6 +18,7 @@ typedef struct
     int idMarca;
     int idColor;
     int isEmpty;
+    int idCliente;
     eFecha anioFabricacion;
 }eAutos;
 
@@ -58,7 +60,7 @@ int buscarAutoPorId(eAutos x[], int tam, int id);
  * \param parametro requerido por la funcion "cargarDescripcionColor"
  *
  */
-void mostrarAuto(eAutos x,eMarcas marca[], int tamMarca, eColores color[], int tamColor);
+void mostrarAuto(eAutos x,eMarcas marca[], int tamMarca, eColores color[], int tamColor,eClientes cliente[], int tamCliente);
 
 /**  \brief muestra el array de autos entero, siempre y cuando cada elemento no este vacio
   *  \param elemento del array autos
@@ -68,7 +70,7 @@ void mostrarAuto(eAutos x,eMarcas marca[], int tamMarca, eColores color[], int t
   *  \param parametro requerido por la funcion "cargarDescripcionColor"
   *  \param parametro requerido por la funcion "cargarDescripcionColor"
   */
-void mostrarAutos(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor);
+void mostrarAutos(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor,eClientes cliente[], int tamCliente);
 
 /** \brief muestra el menu de las marcas a elegir
  *  \return devuelve la opcion elegida por el usuario
@@ -87,7 +89,7 @@ int menuMarcas();
  * \return devuelve 1 si el alta se realizo con exito, de lo contrario retorna un 0
  *
  */
-int altaAuto(eAutos x[], int tam, int proximoId, eMarcas marca[], int tamMarca, eColores color[], int tamColor);
+int altaAuto(eAutos x[], int tam, int proximoId, eMarcas marca[], int tamMarca, eColores color[], int tamColor,eClientes cliente[], int indiceCliente);
 
 /** \brief menu en el que se muestra las opciones a modificar del auto solicitado
  * \return retorna la opcion ingresada por el usuario
@@ -106,7 +108,7 @@ int menuModificarAuto();
  * \return devuelve 1 si se realizo la modificacion con exito, de lo contrario retorna un 0
  *
  */
-int modificarAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor);
+int modificarAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor, eClientes cliente[], int tamCliente);
 
 /** \brief da de baja un auto solicitado
  *
@@ -119,7 +121,7 @@ int modificarAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores co
  * \return devuelve 1 si se realizo la baja con exito, de lo contrario retorna un 0
  *
  */
-int bajaAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor);
+int bajaAuto(eAutos x[],int tam, eMarcas marca[], int tamMarca, eColores color[], int tamColor,eClientes cliente[], int tamCliente);
 
 /** \brief carga el nombre de la marca en una cadena
  *
@@ -140,3 +142,5 @@ void cargarDescripcionMarca(char descripcion[],int id, eMarcas marca[], int tamM
  *
  */
 void cargarDescripcionColor(char descripcion[],int id, eColores color[], int tamColor);
+
+void cargarDescripcionCliente(char descripcion[],int id, eClientes cliente[], int tamCliente);

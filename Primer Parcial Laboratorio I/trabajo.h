@@ -49,7 +49,7 @@ int buscarEspacioLibreTrabajos(eTrabajos x[], int tamTrabajo);
  * \param parametro requerido por la funcion "cargarDescripcionServicio"
  *
  */
-void mostrarTrabajo(eTrabajos x,eAutos autos, eServicios servicio[], int tamServicio);
+void mostrarTrabajo(eTrabajos x, eServicios servicio[], int tamServicio);
 
 /** \brief muestra un elemento del array autos
  *
@@ -60,7 +60,7 @@ void mostrarTrabajo(eTrabajos x,eAutos autos, eServicios servicio[], int tamServ
  * \param parametro requerido por la funcion "mostrarTrabajo"
  *
  */
-void mostrarTrabajos(eTrabajos x[],int tamTrabajo, eAutos autos[], eServicios servicios[], int tamServicios);
+void mostrarTrabajos(eTrabajos x[],int tamTrabajo, eServicios servicios[], int tamServicios);
 
 /** \brief se realiza el alta de un auto agregandolo al array correspondiente
  *
@@ -78,7 +78,7 @@ void mostrarTrabajos(eTrabajos x[],int tamTrabajo, eAutos autos[], eServicios se
  * \return devuelve 1 si el alta se realizo con exito, de lo contrario retorna un 0
  *
  */
-int altaTrabajo(eAutos x[], int tam, eTrabajos trabajo[], int tamTrabajo, int proximoId, eMarcas marca[], int tamMarca, eColores color[], int tamColor, eServicios servicios[], int tamServicios);
+int altaTrabajo(eAutos x[], int tam, eTrabajos trabajo[], int tamTrabajo, int proximoId, eMarcas marca[], int tamMarca, eColores color[], int tamColor, eServicios servicios[], int tamServicios, eClientes cliente[], int tamCliente);
 
 /** \brief carga el nombre del servicio en una cadena
  *
